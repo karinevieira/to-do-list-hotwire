@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  create_task: "Task was successfully created."
+  update_task: "Task was successfully updated."
+  destroy_task: "Task was successfully destroyed."
