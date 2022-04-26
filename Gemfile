@@ -26,6 +26,9 @@ gem "puma", "5.6.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "7.0.2.3"
 
+# Forms made easy for Rails [https://github.com/heartcombo/simple_form]
+gem "simple_form", "5.1.0"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails", "3.4.2"
 
