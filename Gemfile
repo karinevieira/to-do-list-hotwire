@@ -48,16 +48,18 @@ gem "tzinfo-data", "2.0.4", platforms: %i[mingw mswin x64_mingw jruby]
 # gem "kredis"
 
 group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", "1.5.0", platforms: %i[mri mingw x64_mingw]
+  # To help fixture creation [https://github.com/thoughtbot/factory_bot_rails]
+  gem "factory_bot_rails", "6.2.0"
+end
+
+group :development do
   # To ensure code consistency [https://docs.rubocop.org]
   gem "rubocop", "1.28.2"
   gem "rubocop-performance", "1.13.3"
   gem "rubocop-rails", "2.14.2"
   gem "rubocop-rspec", "2.10.0"
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", "1.5.0", platforms: %i[mri mingw x64_mingw]
-end
-
-group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console", "4.2.0"
 end
