@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.ordered
   end
 
   def show; end
@@ -17,7 +17,10 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: t(:create_task)
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: t(:create_task) }
+        format.turbo_stream { flash.now[:notice] = t(:create_task) }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +30,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: t(:update_task)
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: t(:update_task) }
+        format.turbo_stream { flash.now[:notice] = t(:update_task) }
+      end
+      
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +42,11 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: t(:destroy_task)
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path, notice: t(:destroy_task) }
+      format.turbo_stream { flash.now[:notice] = t(:destroy_task) }
+    end
   end
 
   private
