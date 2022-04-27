@@ -34,7 +34,6 @@ class TasksController < ApplicationController
         format.html { redirect_to tasks_path, notice: t(:update_task) }
         format.turbo_stream { flash.now[:notice] = t(:update_task) }
       end
-      
     else
       render :edit, status: :unprocessable_entity
     end
