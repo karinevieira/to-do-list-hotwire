@@ -67,4 +67,6 @@ end
 group :test do
   # Framework library to test our code [https://github.com/rspec/rspec-rails/]
   gem "rspec-rails", "6.0.0.rc1"
+  # Provides RSpec-compatible one-liners to test common Rails functionality [https://github.com/thoughtbot/shoulda-matchers]
+  gem "shoulda-matchers", "5.1.0"
 end
