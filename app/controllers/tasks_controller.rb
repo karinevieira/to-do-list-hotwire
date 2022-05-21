@@ -1,20 +1,21 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = Task.search(params[:search]).ordered
+    @tasks = current_user.tasks.search(params[:search]).ordered
   end
 
   def show; end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.new
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
 
     if @task.save
       respond_to do |format|
@@ -51,7 +52,7 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def task_params

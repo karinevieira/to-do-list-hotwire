@@ -9,5 +9,8 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Rails/NotNullColumn:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
