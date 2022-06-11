@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def name
     email.split("@").first.capitalize
   end
+
+  def total_tasks
+    tasks.where(status: "active").count
+  end
 end
