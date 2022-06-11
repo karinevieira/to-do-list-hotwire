@@ -5,7 +5,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = current_user.tasks.search(params[:search]).ordered
+    status = params[:status] if params[:status].present?
+
+    @tasks = current_user.tasks.search(params[:search]).filter_by_status(status).ordered
   end
 
   def show; end
@@ -56,6 +58,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name)
+    params.require(:task).permit(:name, :status)
   end
 end
