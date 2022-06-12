@@ -14,4 +14,8 @@ class Task < ApplicationRecord
   def set_status
     self.status ||= "active"
   end
+
+  def completed?
+    self.status == "completed"
+  end
 end
