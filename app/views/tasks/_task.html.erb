@@ -5,10 +5,12 @@
                 data: { turbo_frame: "_top" } %>
 
     <div class="task__actions">
-      <%= button_to "Completed", task_path(task.id),
-                    params: {:task => { :id => task.id, :status => "completed", :user_id => current_user.id }},
-                    method: :put,
-                    class: "btn btn--light" %>
+      <% unless task.completed? %>
+        <%= button_to "Completed", task_path(task.id),
+                      params: {:task => { :id => task.id, :status => "completed", :user_id => current_user.id }},
+                      method: :put,
+                      class: "btn btn--light" %>
+      <% end %>
 
       <%= link_to "Edit",
                   edit_task_path(task),
