@@ -10,14 +10,14 @@
 
   <div class="search">
     <%= form_with url: tasks_path, method: :get, data: { turbo_frame: "tasks", turbo_action: "advance", controller: "form", action: "input->form#submit" } do %>
-      <%= text_field_tag "search", nil, placeholder: "Search", class: "form__input" %>
+      <%= text_field_tag "search", nil, autocomplete: :off, placeholder: "Search", class: "form__input" %>
     <% end %>
   </div>
 
   <%= turbo_frame_tag Task.new %>
 
   <%= turbo_frame_tag "tasks" do %>
-    <%= render partial: "task", :collection => @tasks %>
+    <%= render partial: "task", collection: @tasks %>
   <% end %>
 
   <%= render "filter" %>

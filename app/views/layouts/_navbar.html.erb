@@ -4,12 +4,7 @@
       <%= link_to current_user.name, edit_user_registration_path %>
     </div>
     <div class="navbar__action">
-      <%= link_to "Sign out",
-                    destroy_user_session_path,
-                    method: :delete,
-                    data: { turbo_method: :delete },
-                    class: "btn btn--dark" %>
-
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn btn--dark" %>
     </div>
   <% else %>
     <%= link_to "Sign in",
