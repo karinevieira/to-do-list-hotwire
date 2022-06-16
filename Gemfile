@@ -14,6 +14,9 @@ gem "cssbundling-rails", "1.1.0"
 # Devise is a flexible authentication solution for Rails based on Warden [https://github.com/heartcombo/devise].
 gem "devise", "4.8.1"
 
+# Lint your ERB or HTML files [https://github.com/Shopify/erb-lint]
+gem "erb_lint", "0.1.2", require: false
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder", "2.11.5"
 
