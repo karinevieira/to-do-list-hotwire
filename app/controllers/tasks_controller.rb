@@ -49,6 +49,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def clear_completed
+    current_user.total_completed_tasks.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to tasks_path(status: "completed"), notice: t(:clear_completed_task) }
+      format.turbo_stream { flash.now[:notice] = t(:clear_completed_task) }
+    end
+  end
+
   private
 
   def set_task
