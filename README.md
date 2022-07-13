@@ -1,24 +1,60 @@
-# README
+# Todo App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Building a Todo App using Ruby on Rails 7, Hotwire and Stimulus.
+<table>
+  <tr>
+    <td>Ruby</td>
+    <td>3.1.2</td>
+  </tr>
+  <tr>
+    <td>Rails</td>
+    <td>7.0.2.3</td>
+  </tr>
+  <tr>
+    <td>Node</td>
+    <td>16.14.2</td>
+  </tr>
+  <tr>
+    <td>NPM</td>
+    <td>8.5.0</td>
+  </tr>
+  <tr>
+    <td>Yarn</td>
+    <td>1.22.18</td>
+  </tr>
+  <tr>
+    <td>Database</td>
+    <td>PostgreSQL</td>
+  </tr>
+</table>
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+```bash
+  # clone the project
+  git clone git@github.com:karinevieira/todo-app.git
 
-* System dependencies
+  # enter the cloned directory
+  cd todo-app
 
-* Configuration
+  # install Node dependencies
+  yarn install
 
-* Database creation
+  # create the development and test databases
+  rails db:create
 
-* Database initialization
+  # migrate tables to database
+  rails db:migrate
 
-* How to run the test suite
+  # run the project
+  bin/dev
+```
+Open the browser at the address http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running Tests
 
-* Deployment instructions
+To run tests, run the following command
 
-* ...
+```bash
+  bundle exec rspec
+```
